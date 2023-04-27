@@ -1,9 +1,13 @@
 /*Projekt: DiceGame
    Autor: Katharina Meyer
    Letztes Update: 23.02.2023
-
-   Würfelspiel zur Bewegungsförderung von Menschen jeden Alters
-
+   Ziel: Würfelspiel zur Bewegungsförderung von Menschen jeden Alters
+   Bestandteile: Schaumstoffwürfel mit eingebauter Hardware (3-Achsen-Beschleunigungssensor ADXL335 (Gy-61), SparkFun ESP32 Thing, LiPo-Akku (400 mAh)) und App
+   Funktion: Die App steuert das Bewegungsspiel und sendet per Bluetooth Low Energy das Signal zum Starten und Stoppen des Spiels an den ESP32.
+             Der Beschleunigungssensor misst die Werte an der X-, Y- und Z-Achse und filtert diese.
+             Festgelegte Grenzwerte ermöglichen die Bestimmung der oben liegenden Würfelseite.
+             Sobald die gefilterten Werte den Grenzwert überschreiten, wird eine Zeitmessung gestartet.
+             Wenn der Zustand für mehr als fünf Sekunden anhält, wird per Bluetooth Low Energy die gewürfelte Seite an die App gesendet.
 */
 
 //--- Bluetooth Low Energy ---
