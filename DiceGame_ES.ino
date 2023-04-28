@@ -214,12 +214,10 @@ void loop() {
     oldDeviceConnected = deviceConnected;
   }
 
-  //wenn Gerät verbunden ist
-  //wenn Rundenanzahl 3, 5 oder 11 empfangen wurde --> Funktion zum Zurücksetzen der Variablen durchführen
-  //"Fehler": wenn Runde 0 empfangen wird, wird play false
-  //sonst wurde die Rundenanzahl bereits empfangen --> play wird true, Funktion zum Zurücksetzen der Variablen durchführen
+  //--- wenn Gerät verbunden ist ---
   if (deviceConnected) {
     Serial.println("deviceConnected");
+    //--- Rundenanzahl 3, 5 oder 11 wird empfangen --> Funktion zum Zurücksetzen der Variablen durchführen ---
     switch (roundStatus) {
       case three_Rounds:
         nrRounds = 3;
@@ -233,18 +231,14 @@ void loop() {
         break;
       case eleven_Rounds:
         nrRounds = 11;
-        Serial.println("Rundenanzahl: 10");
+        Serial.println("Rundenanzahl: 11");
         resetVariables();
         break;
       default:
-        if (nrRounds == 0) {
-          Serial.println("default");
-          play = false;
-        } else {
-          Serial.println("default true");
-          play = true;
-          resetVariables();
-        }
+        //--- Rundenanzahl wurde bereits ausgewählt ---
+        Serial.println("default true");
+        play = true;
+        resetVariables();
         break;
     }
 
