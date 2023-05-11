@@ -493,7 +493,7 @@ void resetVariables() {
 //------------------------------ Filter ------------------------------
 //--- Werte an den Achsen einlesen ---
 //--- 10 Werte dem Array hinzufügen ---
-//--- Werte addieren und durch 10 rechnen ---
+//--- Werte addieren und durch 10 dividieren ---
 
 void filterX() {
   AverageBuffer1[NextAverage1++] = analogRead(accXPin);
